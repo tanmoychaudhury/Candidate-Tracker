@@ -1,0 +1,52 @@
+
+.bottompagebar{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	background: white;
+}
+
+.page-container{
+	height: 65%;
+	position: absolute;
+	width: 100%;
+}
+
+.tab-page-content{
+	position: absolute;
+	height: 130%;
+	overflow-y: auto;
+	width: 100%;
+}
+canvas{
+	width: 100% !important;
+}
+canvas.absCanvas{
+	position: absolute;
+}
+.proximity{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 5px solid #00bdd3;
+	display: inline-block;
+}
+.proximity i{
+	font-size: 50px;
+	position: relative;
+	top: 28%;
+	color: #00bdd3;
+}
+.redclass,.weightfont{
+	color: red !important;
+}
+.weightfont{
+	font-size: 20px;
+}
+.nv-y {
+  display: none;
+}
+
+.tick line {
+  display: none;
+}

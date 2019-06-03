@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="billapp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Candidate-Tracker</title>
+    <link rel="icon" type="image/png" href="images/logo.png"> <!--title image-->
+    
+    <!-- Raleway google font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	
+	<!-- Angular Moment Picker -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment-picker/0.10.1/angular-moment-picker.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/angular-moment-picker/0.10.1/angular-moment-picker.min.css" rel="stylesheet">
+	
+	<!-- Angular clock -->
+	<script src="bower_components/angular-ui-clock/dist/angular-clock.js"></script>
+	<link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+	
+	<!-- angularjs-datepicker -->
+    <script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+    <link href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" type="text/css" href="lib/SweetAlert/sweetalert.css">
+    <script src="lib/SweetAlert/sweetalert.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    	
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/appCSS.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/tab.css">
+    <link rel="stylesheet" href="css/clock.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script> -->
+    <script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+      
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+    <script src="js/route.js"></script>
+    <script src="js/dirPagination.js"></script>
+    <script src="pages/login/controllers/loginPageCntrl.js"></script>
+    <script src="pages/tabs/controllers/maintabCntrl.js"></script>
+    <script src="pages/dashboard/controllers/dashboardtabCntrl.js"></script>
+    <script src="pages/register/controllers/registertabCntrl.js"></script>
+    <script src="pages/about/controllers/abouttabCntrl.js"></script>
+        
+</head>
+<body style="font-family: 'Raleway',sans-serif;">
+    <ui-view></ui-view>
+</body>
+</html>

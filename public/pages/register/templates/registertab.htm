@@ -1,0 +1,125 @@
+<div class="container">
+	<div class="card">
+		<div class="card-block" style="background-color: #20a8d8; border: 2px solid #000; border-radius: 5px;">
+		<ng-form name="addrecord" novalidate>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="form-group">
+						<label>Candidate Name:</label>
+						<input type="text" class="form-control" placeholder="Enter Candidate Name" ng-model="name">
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group">
+							<label>Age:</label>
+							<input type="number" class="form-control" ng-model="age">
+						</div>
+					</div>
+					<div class="col-xs-5">
+						<div class="form-group">
+							<label>Contact Number:</label>
+							<input type="number" class="form-control" ng-model="connum">
+						</div>
+					</div>
+					<div class="col-xs-5">
+						<div class="form-group">
+							<label>Alternate Number:</label>
+							<input type="number" class="form-control" ng-model="altnum">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label>Address:</label>
+						<textarea class="form-control" placeholder="Enter Address of Candidate" ng-model="address" rows="6"></textarea>
+					</div>
+
+					<div class="col-xs-5">
+						<div class="form-group">
+							<label>Qualification:</label>
+							<input type="text" class="form-control" ng-model="qualification">
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="form-group">
+							<label>Work Experience:</label>
+							<input type="text" class="form-control" ng-model="workexp">
+						</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="form-group">
+							<label>Month:</label>
+							<select type="text" class="form-control" ng-options="m for m in months" ng-model="month">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label>Post:</label>
+						<fieldset class="demo-fieldset" flex-xs flex="50" style="background-color: white; padding: 1rem;">
+							<md-checkbox aria-label="Select All"
+										ng-checked="isChecked()"
+										md-indeterminate="isIndeterminate()"
+										ng-click="toggleAll()">
+							<span ng-if="isChecked()">Un-</span>Select All
+							</md-checkbox>
+							<div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items | orderBy">
+								<md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+								{{ item }}
+								</md-checkbox>
+							</div>
+						</fieldset>
+					</div>
+					
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label>Interview Date:</label>
+							<div class="input-group" moment-picker="interview_date" format="DD-MMM-YYYY" start-view="day">
+								<span class="input-group-addon">
+									<i class="glyphicon glyphicon-calendar"></i>
+								</span>
+								<input class="form-control" placeholder="Select a date" ng-model="interview_date" ng-model-options="{ updateOn: 'blur' }">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label>Documentation Date:</label>
+							<div class="input-group" moment-picker="doc_date" format="DD-MMM-YYYY" start-view="day">
+								<span class="input-group-addon">
+									<i class="glyphicon glyphicon-calendar"></i>
+								</span>
+								<input class="form-control" placeholder="Select a date" ng-model="doc_date" ng-model-options="{ updateOn: 'blur' }">
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label>Fees:</label>
+							<input type="number" class="form-control" ng-model="fees" ng-init="fees=0">
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label>Paid Amount:</label>
+							<input type="number" class="form-control" ng-model="paid" ng-init="paid=0">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label>Feedback:</label>
+						<textarea class="form-control" placeholder="Enter feedback" ng-model="feedback" rows="6"></textarea>
+					</div>				
+				</div>
+				<div class="row">
+			    	<div class="col-xs-4 col-xs-offset-3">
+			        	<button type="submit" class="btn btn-success" ng-click="recordSubmit()" style="border: 1px solid #000; border-radius: 4px;">Submit</button>
+			        	<button type="button" class="btn btn-danger" ng-click="recordReset()" style="border: 1px solid #000; border-radius: 4px;">Reset</button>
+			        </div>
+			    </div>
+			</div>
+		</ng-form>
+		</div>
+	</div>
+</div>

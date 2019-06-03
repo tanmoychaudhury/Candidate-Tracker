@@ -1,0 +1,153 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-block" style="font-size: large; font-weight: bold; color: #fff; background-color: #24b755;">
+				<div class="col-md-1">Filter:</div>
+				<div class="col-md-2" style="cursor: pointer;">
+					<a ng-click="sort('POST')">
+						<span class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="reverseSort"></span>&nbsp;
+						By Post
+						<span class="fa fa-sort-desc" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-sort-asc" aria-hidden="true" ng-show="reverseSort"></span>
+					</a>
+				</div>
+				<div class="col-md-2" style="cursor: pointer;">
+					<a ng-click="sort('INTERVIEW_DATE')">
+						<span class="fa fa-calendar" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-calendar" aria-hidden="true" ng-show="reverseSort"></span>&nbsp;
+						By Interview Date
+						<span class="fa fa-sort-desc" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-sort-asc" aria-hidden="true" ng-show="reverseSort"></span>
+					</a>
+				</div>
+				<div class="col-md-2" style="cursor: pointer;">
+					<a ng-click="sort('MONTH')">
+						<span class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="reverseSort"></span>&nbsp;
+						By Month
+						<span class="fa fa-sort-desc" aria-hidden="true" ng-show="!reverseSort"></span>
+						<span class="fa fa-sort-asc" aria-hidden="true" ng-show="reverseSort"></span>
+					</a>
+				</div>
+				<div class="col-md-3">
+					<label >Search:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            		<input type="text" ng-model="search" class="" placeholder=" Search" style="color: black;">
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-block">
+			<div class="table-responsive">
+				<table class="table table-hover table-bordered table-outline m-b-0 hidden-sm-down">
+					<thead class="thead-default" style="font-size: large; font-weight: bold;">
+						<tr>
+							<th class="text-center">NAME</th>
+							<th class="text-center">AGE</th>
+							<th class="text-center">CONTACT #</th>
+							<th class="text-center">ALTERNATE #</th>
+							<th class="text-center">ADDRESS</th>
+							<th class="text-center">QUALIFICATION</th>
+							<th class="text-center">WORK EXP</th>
+							<th class="text-center">MONTH</th>
+							<th class="text-center">POST</th>
+							<th class="text-center">INTERVIEW DATE</th>
+							<th class="text-center">DOCUMENTATION DATE</th>
+							<th class="text-center">FEES</th>
+							<th class="text-center">PAID</th>
+							<th class="text-center">DUE</th>
+							<th class="text-center">FEEDBACK</th>
+							<th class="text-center">ENROLLED</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="enroll in enrolledcandidate.data | orderBy:sortKey:reverseSort | filter:search | itemsPerPage:5" 
+							style="color: rgb(71, 113, 187); font-weight: 600;">
+							<!-- show-->
+							<td ng-hide="edited === $index" class="text-center">{{enroll.NAME}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.AGE}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.CONTACT_NUMBER}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.ALT_NUMBER}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.ADDRESS}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.QUALIFICATION}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.WORK_EXP}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.MONTH}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.POST}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.INTERVIEW_DATE}}</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.DOC_DATE}}</td>
+							<td ng-hide="edited === $index" class="text-center">
+								<span ng-class="{'green' : enroll.FEES}">₹{{enroll.FEES}}</span>
+							</td>
+							<td ng-hide="edited === $index" class="text-center">
+								<span ng-class="{'black' : enroll.PAID}">₹{{enroll.PAID}}</span>
+							</td>
+							<td ng-hide="edited === $index" class="text-center">
+								<span ng-class="{'green' : enroll.DUE == 0,
+										'red' : enroll.DUE > 0,}">₹{{enroll.DUE}}
+								</span>
+							</td>
+							<td ng-hide="edited === $index" class="text-center">{{enroll.FEEDBACK}}</td>
+							<td ng-hide="edited === $index" class="text-center">
+								<span ng-class="{'green' : enroll.SMS == 'YES'}">{{enroll.SMS}}</span>
+							</td>
+							<td ng-hide="edited === $index">
+								<button class="btn btn-primary" type="button" ng-click="edit($index)">Edit</button>
+								<button class="btn btn-danger" type="button" ng-click="remove(enroll,$index)">Delete</button>
+							</td>
+							<!-- edit-->
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="text" ng-model="detailsupdate.name" ng-init="detailsupdate.name=enroll.NAME" style="width: 130px;"></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="number" ng-model="detailsupdate.age" value="{{enroll.AGE}}" style="width: 45px;"></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="number" ng-model="detailsupdate.connum" value="{{enroll.CONTACT_NUMBER}}" style="width: 110px;"></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="number" ng-model="detailsupdate.altnum" value="{{enroll.ALT_NUMBER}}" style="width: 110px;"></td>
+							<td ng-show="edited === $index" class="text-center"><textarea class="form-control" ng-model="detailsupdate.address" ng-init="detailsupdate.address=enroll.ADDRESS" rows="2" style="width: 150px;"></textarea></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="text" ng-model="detailsupdate.qualification" ng-init="detailsupdate.qualification=enroll.QUALIFICATION"></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="text" ng-model="detailsupdate.workexp" ng-init="detailsupdate.workexp=enroll.WORK_EXP" style="width: 80px;"></td>
+							<td ng-show="edited === $index">
+								<select type="text" class="form-control" ng-options="m for m in months" ng-model="detailsupdate.month" ng-init="detailsupdate.month=enroll.MONTH" style="width: 100px;">
+									<option value=""></option>
+								</select>
+							</td>
+							<td ng-show="edited === $index" class="text-center">{{data.POST}}</td>
+							<td ng-show="edited === $index" class="text-center">
+								<div class="input-group" moment-picker="detailsupdate.interview_date" format="DD-MMM-YYYY" start-view="day">
+									<span class="input-group-addon">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</span>
+									<input class="form-control" placeholder="{{enroll.INTERVIEW_DATE}}" ng-model="detailsupdate.interview_date" ng-model-options="{ updateOn: 'blur' }" style="width: 100px;">
+								</div>
+							</td>
+							<td ng-show="edited === $index" class="text-center">
+								<div class="input-group" moment-picker="detailsupdate.doc_date" format="DD-MMM-YYYY" start-view="day">
+									<span class="input-group-addon">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</span>
+									<input class="form-control" placeholder="{{enroll.DOC_DATE}}" ng-model="detailsupdate.doc_date" ng-model-options="{ updateOn: 'blur' }">
+								</div>
+							</td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="number" ng-model="detailsupdate.fees" value="{{enroll.FEES}}" style="width: 80px;"></td>
+							<td ng-show="edited === $index" class="text-center"><input class="form-control" type="number" ng-model="detailsupdate.paid" value="{{enroll.PAID}}" style="width: 80px;"></td>
+							<td ng-show="edited === $index" class="text-center">{{enroll.DUE}}</td>
+							<td ng-show="edited === $index" class="text-center"><textarea class="form-control" ng-model="detailsupdate.feedback" ng-init="detailsupdate.feedback=enroll.FEEDBACK" rows="2" style="width: 150px;"></textarea></td>
+							<td ng-show="edited === $index">
+								<select type="text" class="form-control" ng-options="s.name for s in smssent" ng-model="detailsupdate.sms" ng-init="detailsupdate.sms=enroll.SMS">
+									<option value=""></option>
+								</select>
+							</td>
+							<td ng-show="edited === $index">
+								<button class="btn btn-success" type="button" ng-click="updateEdit(enroll,detailsupdate)">Save</button>
+								<button class="btn btn-danger" type="button" ng-click="close()">Cancel</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dir-pagination-controls
+			       max-size="5"
+			       direction-links="true"
+			       boundary-links="true" >
+			    </dir-pagination-controls>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

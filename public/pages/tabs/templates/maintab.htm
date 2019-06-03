@@ -1,0 +1,52 @@
+    <div class="maintabcontent" style="font-family: 'Raleway',sans-serif;">
+        <nav class="navbar navbar-default navbar-fixed-top customappbar">
+            <ul class="nav navbar-nav navbar-left" style="position: relative; left: 34px; top: 0px; font-size: large;">        
+                <li id = "menu_all" data-ng-click="ShowId(1)"><a  ui-sref="maintab.all" class="fa fa-buysellads" aria-hidden="true" style="color: white">&nbsp;&nbsp;All Candidates</a></li>
+                <li id = "menu_enrolled" data-ng-click="ShowId(2)"><a  ui-sref="maintab.enrolled" class="fa fa-edge" aria-hidden="true" style="color: white">&nbsp;&nbsp;Enrolled Candidates</a></li>
+                <li id = "menu_billentry"><a ui-sref="maintab.register" class="fa fa-list-alt" aria-hidden="true" style="color: white">&nbsp;&nbsp;Register</a></li>
+                <!-- <li id = "menu_billupdate"><a ui-sref="maintab.billupdate" class="fa fa-plus-circle" aria-hidden="true" style="color: white">&nbsp;&nbsp;BILL UPDATE</a></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right pull-right" style="position: relative; right: 50px; font-size: x-large;">
+            	<li style="color:white">					  	
+					<div class="tabHeaderTxt pull-left">Admin</div>								
+				</li>
+                <li class="dropdown">
+                	<a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white"></a>
+                    <ul class="dropdown-menu text-right header-nav-dropdown">
+                    	<li><a ng-click="logoutBtnClick()" style="cursor: pointer;">Logout <span class="glyphicon glyphicon-off"></span></a></li>
+                    </ul>
+                </li>
+          </ul>
+        </nav>
+    </div> 
+
+    <div class="page-container">
+		<div class="tab-page-content" ui-view>
+		</div>
+	</div>
+
+<div class="bottompagebar" style="font-family: 'Raleway',sans-serif;">
+    <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #2d0de2;">
+        <ul class="nav navbar-nav navbar-left" style="font-size: x-large; font-weight: bold;">
+            <li class="page-scroll">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="tabHeaderTxt">Candidate-Tracker</li>
+        </ul>        
+        <ul class="nav navbar-nav navbar-right" style="font-size: large; font-weight: bold;">
+        	<li class="page-scroll">
+                <a ng-click="about()" style="color: white; cursor: pointer;">About</a>
+            </li>
+            <li class="page-scroll">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="page-scroll">
+            	<ds-widget-clock show-digital theme="blue-light" digital-format="'EEEE MMMM d,yyyy'"></ds-widget-clock>
+            	<ds-widget-clock show-digital theme="blue-light" digital-format="'hh:mm:ss a'"></ds-widget-clock>
+            </li>
+            <li class="page-scroll">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+        </ul>
+    </nav>
+</div>
